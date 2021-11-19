@@ -1,0 +1,15 @@
+textarea {
+    resize: none;
+}
+
+.sen_msg_btn{
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.contact_main_cnt {
+    margin-top: 20px;
+}

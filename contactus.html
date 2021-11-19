@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./contactus.css">
+    <title>Contact Us</title>
+</head>
+<body>
+    <script>
+        
+        function sendValidate() {
+            var name = document.getElementById('yr_name').value;
+            var email = document.getElementById('yr_email').value;
+            var Subject = document.getElementById('yr_subject').value;
+            var message = document.getElementById('yr_message').value;
+            if(name!=="") {
+                if(email!=="") {
+                    if(Subject!=="") {
+                        if(message!=="") {
+                            alert("Message Send Succesfully!!, We will contact you soon!!");
+                        }   
+                        else {
+                            alert("Please Enter Your Message");
+                        }
+                    }
+                    else {
+                        alert("Please Enter Your Subject!!");
+                    }
+                }
+                else {
+                    alert("Please Enter Your Email!!");
+                }
+            }   
+            else {
+                alert("Please Enter Your Name!!");
+            }
+        }
+
+    </script>
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary">
+        <a class="navbar-brand" href="payment.html">Donate</a>
+        <!-- Toggler button -->
+        <button class="navbar-toggler" type="button" data-toggler="collapse" data-target="#collapseContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapseContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./Aboutus.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contactus.html">Contact Us</a>
+                </li>
+            </ul>
+        </div>  
+    </nav>
+    <div class="container">
+        <h3 class="text-center mt-3">Contact Us</h3>
+    </div>
+    <div class="container contact_main_cnt">   
+        <div class="row">
+            <div class="col">
+                <img src="./contactnew.jpg" alt="Contact Us">
+            </div>
+            <div class="col">
+                <div class="">
+                    <div class="location">
+                        <span class=""><b>Address:</b> </span>
+                        <em>Mumbai, Maharashtra, India</em>
+                    </div>
+                    <div class="phone">
+                        <span class=""><b>Tel:</b> </span>
+                        <em>(+022) 78564787</em>
+                    </div>
+                    <div class="email">
+                        <span class=""><b>Email:</b> </span>
+                        <em>donation@donate.com</em>
+                    </div>
+                </div>
+                <br>
+                <div class="">
+                    <form method="post">
+                        <input type="text" name="yr_name" id="yr_name" placeholder="Name" required size="50%"><br><br>
+                        <input type="email" name="yr_email" id="yr_email" placeholder="Email" required size="50%"><br><br>
+                        <input type="text" name="yr_subject" id="yr_subject" placeholder="Subject" required size="50%"><br><br>
+                        <textarea  name="yr_message" id="yr_message" placeholder="Message" required cols="53" rows="5"></textarea><br>
+                        <button class="sen_msg_btn" onclick="sendValidate()">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

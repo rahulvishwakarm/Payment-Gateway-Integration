@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title>Payment </title>
+    <style>
+        .donar_final_form {
+            border: 1px solid black;
+            padding: 40px 80px;
+            border-right: 10%;
+            margin-top: 15%;
+            margin-left: 35%;
+            margin-right: 40%;
+            background-color: #ade8f4;
+        }
+    </style>
+</head>
+<body background="./donate_bg.jpg" >
+    <form class="donar_final_form" >
+        <input type="text" placeholder="Donar Name" id="dnr_name" name="dnr_name" required ><br><br>
+        <input type="number" placeholder="Donation Amount" id="dnr_amount" name="dnr_amount"  required ><br><br>
+        <input type="button" id="rzp-button1" value="Donate Now with Razor Pay" onclick="donateNow()"/>
+    </form>
+    <script>
+        function donateNow() {
+        var amnt = jQuery('#dnr_amount').val();
+        var nme = jQuery('#dnr_name').val();
+        var options = {
+                "key": "rzp_test_tmqdU0Fwx3NKg1", // Enter the Key ID generated from the Dashboard    
+                "amount": amnt*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise    
+                "currency": "INR",    
+                "name": nme,    
+                "description": "Feeding the bread!!",    
+                "image": "./sparksfoundation.jpg",      
+                "handler": function (response) {
+                    jQuery.ajax({
+                        success:function(result) {
+                            window.location.href="./index.html";
+                        }
+                    })
+                    }
+                };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+
+    }
+    </script>
+</body>
+</html>
